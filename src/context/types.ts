@@ -5,7 +5,7 @@ import { AuthContext } from './auth';
 import { IUser } from '../types/user';
 
 export interface IAuthContext{
-   user: IUser;
+   user: IUser | null;
    handleLogin: (loginData: ILoginData) => Promise<void>;
    handleSignOut: () => void;
 }

@@ -7,10 +7,12 @@ import { Button } from '../components/button'
 import bannerImage from '@/assets/banner.png'
 import Image from 'next/image';
 import { Container, TitleContent, TitleHighlight, Title } from './style'
-import router from 'next/router';
+import { useRouter } from 'next/navigation';
+
 
 export default function Home() {
 
+    const router = useRouter();
 
   const handleClickSignIn = () => {
      router.push("/login");

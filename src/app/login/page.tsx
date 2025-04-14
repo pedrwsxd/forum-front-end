@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { useForm } from "react-hook-form"
@@ -12,6 +11,7 @@ import { Input } from '../../components/input'
 import { Column, Container, CriarText, EsqueciText, Row, SubTitleLogin, Title, TitleLogin, Wrapper } from './style'
 import { IFormData, ILogin} from './types'
 import { useAuth } from '../../hooks/useAuth'
+import { useRouter } from 'next/navigation';
 
 
 const schema = yup
@@ -23,7 +23,7 @@ const schema = yup
 
 const Login = ({onClick}: ILogin) => {
 
-    const navigate = useNavigate();
+    const router = useRouter(); 
     const { handleLogin } = useAuth();
 
     const {
@@ -42,7 +42,7 @@ const Login = ({onClick}: ILogin) => {
     };
 
     const handleClickRegister = () => {
-        navigate('/register')
+        router.push('/register')
     }
 
     return (<>

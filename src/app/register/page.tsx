@@ -2,7 +2,6 @@
 
 import React from 'react'
 
-import { useNavigate } from 'react-router-dom'
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { useForm } from "react-hook-form"
@@ -13,6 +12,8 @@ import { Input } from '../../components/input'
 import { api } from '../../services/api'
 import { Column, Container,LogarText ,LoginText , Row, SubTitleRegister, Title, TitleRegister, Wrapper } from './style'
 import { IFormData, ILogin } from './types'
+import { useRouter } from 'next/navigation';
+
 
 
 const schema = yup
@@ -25,7 +26,7 @@ const schema = yup
 
 const Register = ({onClick}: ILogin) => {
 
-    const navigate = useNavigate();
+    const router = useRouter(); 
 
     const {
         control,
@@ -39,14 +40,14 @@ const Register = ({onClick}: ILogin) => {
     console.log(isValid, errors);
     const onSubmit = async (formData: IFormData) => {
         try {
-            const { data } = await api.post('users', {
+            const { data } = await api.post('user   ', {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,
             });
             if (data) {
                 alert('Conta criada com sucesso!');
-                navigate('/login');
+            router.push('/login');
             }
         } catch (error) {
             alert('Erro ao criar conta. Tente novamente.');
@@ -54,7 +55,7 @@ const Register = ({onClick}: ILogin) => {
     };
 
     const handleClickLogin = () => {
-        navigate('/login')
+        router.push('/login')
     }
 
     return (<>

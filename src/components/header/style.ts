@@ -84,5 +84,8 @@ export const Input = styled.input`
 
 export const ButtonSingOut = styled.button`
     text-decoration: none;
+    width: 50px;
+    padding: 3px 5px;
     color: #FFF;
+    background: none;
 `

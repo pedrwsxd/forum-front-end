@@ -16,14 +16,14 @@ import {
     ButtonSingOut
 } from './style'
 import { IHeader } from './types'
-import { AuthContext } from '../../context/auth'
 import { useAuth } from '../../hooks/useAuth'
-import router from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 
 const Header = ({ onClick }: IHeader) => {
 
+    const router = useRouter();
     const { user, handleSignOut } = useAuth();
 
 
@@ -44,27 +44,26 @@ const Header = ({ onClick }: IHeader) => {
             <Container>
                 <Row>
                     <Image src={logo} alt="Logo da dio" onClick={handleClickHome} />
-                    {
-                        user.id ? (
-                            <>
-                                <BuscarInputContainer>
-                                    <Input placeholder="Buscar..." />
-                                </BuscarInputContainer>
-                                <Menu>Live Code</Menu>
-                                <Menu>Global</Menu>
-                            </>
-                        ) : null}
+                    {user && (
+                        <>
+                            <BuscarInputContainer>
+                                <Input placeholder="Buscar..." />
+                            </BuscarInputContainer>
+                            <Menu>Live Code</Menu>
+                            <Menu>Global</Menu>
+                        </>
+                    )}
                 </Row>
                 <Row>
                     {
-                        user.id ? (
+                        user ? (
                             <>
-                            <UserPicture src='https://github.com/pedrwsxd.png' />
-                            <ButtonSingOut to='/' onClick={ handleSignOut }>
-                            Sair
-                            </ButtonSingOut>
+                                <UserPicture src='https://github.com/pedrwsxd.png' />
+                                <ButtonSingOut onClick={handleSignOut}>
+                                    Sair
+                                </ButtonSingOut>
                             </>
-                           
+
                         ) : (
                             <>
                                 <MenuRight onClick={handleClickHome}>Home</MenuRight>
