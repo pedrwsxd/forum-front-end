@@ -1,11 +1,11 @@
 "use client";
 
 import React from 'react'
-import { Header } from '../../components/header'
-import { Card } from '../../components/card'
-import { UserInfo } from '../../components/userInfo'
+import { Header } from '@/components/header'
+import { Card } from '@/components/card'
+import { UserInfo } from '@/components/userInfo'
 import { Container, Column, Title, TitleHighlight } from './style'
-import { AuthContext } from '../../context/auth'
+import { AuthContext } from '@/context/auth'
 
 const Feed = () => {
 
