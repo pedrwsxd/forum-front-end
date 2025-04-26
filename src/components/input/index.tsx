@@ -14,6 +14,7 @@ const Input = ({ leftIcon, name, errorMessage, control, maxLength, ...rest }: II
       <Controller
         name={name}
         control={control}
+        defaultValue=""
         rules={{ required: true }}
         render={({ field }) => <InputText {...field} maxLength={maxLength} {...rest}  />}
         />

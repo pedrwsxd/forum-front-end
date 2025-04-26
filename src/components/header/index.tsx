@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react'
-import logo from '../../assets/logo-dio.svg'
+import logo from '../../assets/logo.svg'
 import Image from 'next/image'
 import { Button } from '../button'
 import {
@@ -43,7 +43,7 @@ const Header = ({ onClick }: IHeader) => {
         <Wrapper>
             <Container>
                 <Row>
-                    <Image src={logo} alt="Logo da dio" onClick={handleClickHome} />
+                    <Image src={logo} width={50} alt="Logo do PH" onClick={handleClickHome} />
                     {user && (
                         <>
                             <BuscarInputContainer>

@@ -4,7 +4,7 @@ import { jwtVerify } from 'jose';
 const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
 
 export const config = {
-  matcher: ['/feed/:path*'],
+  matcher: ['/feed/:path*', '/ask/:path*', '/question/:path*'],
 };
 
 export async function middleware(request: NextRequest) {
@@ -18,7 +18,7 @@ export async function middleware(request: NextRequest) {
   }
 
   try {
-    await jwtVerify(token, secret); // lança se assinatura/expiração inválida
+    await jwtVerify(token, secret);
     return NextResponse.next();
   } catch (err) {
     console.error('JWT inválido:', err);
