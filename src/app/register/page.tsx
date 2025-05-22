@@ -12,7 +12,7 @@ import { Input } from '../../components/input'
 import { api } from '../../services/api'
 import { Column, Container,LogarText ,LoginText , Row, SubTitleRegister, Title, TitleRegister, Wrapper } from './style'
 import { IFormData, ILogin } from './types'
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';    
 
 
 

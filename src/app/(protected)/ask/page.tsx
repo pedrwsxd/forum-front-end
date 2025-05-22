@@ -12,7 +12,7 @@ export default function AskPage() {
   const router = useRouter();
 
   const onSubmit = async (data: any) => {
-    await createQuestion(data); // { title, content }
+    await createQuestion(data); 
     reset();
     router.push('/feed');
   };

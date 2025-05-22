@@ -8,5 +8,5 @@ export interface Question {
     user: {
       name: string;
     };
-    createdAt: string; // Add this property
+    createdAt: string; 
   };
